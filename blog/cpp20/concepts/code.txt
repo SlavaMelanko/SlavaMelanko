@@ -1,0 +1,96 @@
+template<typename T,
+         typename = typename std::enable_if<std::is_integral<T>::value>::type>
+auto Add(const T a, const T b) { return a + b; }
+
+---
+
+template<typename T,
+    typename IsNumber = typename std::enable_if_t<std::is_integral_v<T>>>
+auto Add(const T a, const T b) { return a + b; }
+
+---
+
+template<typename T,
+    typename IsNumber = typename std::enable_if_t<
+        std::is_integral_v<T> || std::is_floating_point_v<T>
+    >
+>
+auto Add(const T a, const T b) { return a + b; }
+
+---
+
+template<typename T>
+auto Add(const T a, const T b)
+{
+    static_assert(std::is_integral_v<T> || std::is_floating_point<T>);
+    return a + b;
+}
+
+---
+
+#include <concepts>
+
+template <typename T>
+concept Number = std::integral<T> || std::floating_point<T>;
+
+template<Number T>
+auto Add(const T a, const T b) { return a + b; }
+
+---
+
+template<typename T> requires Number<T>
+auto Add(const T a, const T b);
+
+template<typename T>
+auto Add(const T a, const T b) requires Number<T>;
+
+template<Number T>
+auto Add(const T a, const T b);
+
+auto Add(const Number auto a, const Number auto b);
+
+---
+
+template<typename T>
+concept integral = std::is_integral_v<T>;
+
+
+requires (optional-parameter-list) { requirements; ...; }
+
+---
+
+template<typename T>
+concept Addable = requires (T a, T b) { a + b; };
+
+template<Addable T>
+auto Add(T a, T b);
+
+---
+
+template<typename T>;
+concept HasIterator = requires { typename T::iterator_type; };
+
+template<typename T>;
+concept IsVectorizable = requires { typename std::vector<T>; };
+
+---
+
+template<typename T>
+concept Subtractable = requires (T a) {
+    { Add(a, a) } noexcept -> std::same_as<T>;
+    { a * -1 } -> std::same_as<T>;
+};
+
+template<Subtractable T>
+auto Sub(T a, T b) { return Add(a, b * -1); };
+
+---
+
+template<typename T>
+concept Is4Bytes1 = requires { requires sizeof(T) == 4; };
+
+template<typename T>
+concept Is4Bytes2 = requires { sizeof(T) == 4; };
+
+template<typename T>
+concept Is4Bytes3 = ( sizeof(T) == 4 );
