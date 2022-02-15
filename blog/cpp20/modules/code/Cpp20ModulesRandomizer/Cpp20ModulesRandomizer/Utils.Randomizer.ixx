@@ -23,17 +23,18 @@ public:
 
 	std::string generateString(const size_t& length, const int literals)
 	{
-		std::random_device rd{};
-		std::mt19937 rng{ rd() };
 		const auto charset = GetCharset(literals);
 		std::uniform_int_distribution<> distr{ 0, static_cast<int>(charset.size()) - 1 };
 
 		std::string str(length, 0);
-		std::generate_n(
-			str.begin(), length, [&]() { return charset.at(static_cast<size_t>(distr(rng))); });
+		std::generate_n(str.begin(), length, [&] { return charset.at(static_cast<size_t>(distr(m_rng))); });
 
 		return str;
 	}
+
+private:
+	std::random_device m_rd{};
+	std::mt19937 m_rng{ m_rd() };
 };
 
 namespace {
