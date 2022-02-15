@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{f5d3bf73-01ac-4fb6-80a3-6a456b953e24}</ProjectGuid>
-    <RootNamespace>Cpp20ModulesRandomizer</RootNamespace>
+    <RootNamespace>Randomizer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Randomizer</ProjectName>
   </PropertyGroup>
