@@ -21,7 +21,7 @@ public:
 		Alnum = Letters | Digits
 	};
 
-	std::string generateString(const size_t& length, const int literals);
+	std::string generateString(const size_t &length, const int literals);
 
 private:
 	std::random_device m_rd{};

@@ -21,7 +21,7 @@ public:
 		Alnum = Letters | Digits
 	};
 
-	std::string generateString(const size_t& length, const int literals)
+	std::string generateString(const size_t &length, const int literals)
 	{
 		const auto charset = GetCharset(literals);
 		std::uniform_int_distribution<> distr{ 0, static_cast<int>(charset.size()) - 1 };
