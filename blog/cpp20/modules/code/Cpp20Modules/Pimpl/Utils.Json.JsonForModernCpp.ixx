@@ -2,7 +2,7 @@ module;
 
 #include <nlohmann/json.hpp>
 
-export module Utils.Json:Impl;
+export module Utils.Json:JsonForModernCpp;
 
 namespace utils::json::impl {
 
@@ -13,6 +13,7 @@ public:
     explicit Document(const std::string& data)
         : m_document{ nlohmann::json::parse(std::string{data}) }
     {}
+    ~Document() noexcept = default;
 
     Document(Document&& document) noexcept = default;
     Document& operator=(Document&& document) noexcept = default;
@@ -21,7 +22,7 @@ public:
     auto get(const std::string& key) const { return m_document[key].get<T>(); }
 
     template<typename T>
-    void set(const std::string& key, T value) { m_document[std::string{ key }] = value; }
+    void set(const std::string& key, T value) { m_document[key] = value; }
 
     bool contains(const std::string& key) const { return m_document.contains(key); }
 

@@ -1,6 +1,6 @@
 export module Utils.Json;
 
-import :Impl;
+import :JsonCpp;
 
 import std.core;
 import std.threading;

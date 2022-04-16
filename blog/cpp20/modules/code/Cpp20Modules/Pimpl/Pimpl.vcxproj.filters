@@ -24,11 +24,25 @@
     <ClCompile Include="Utils.Json.ixx">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.Json.Impl.ixx">
+    <ClCompile Include="Utils.Json.JsonForModernCpp.ixx">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.Json.JsonCpp.ixx">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="dist\jsoncpp.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dist\json\json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dist\json\json-forwards.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
