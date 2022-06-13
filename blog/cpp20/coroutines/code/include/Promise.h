@@ -63,7 +63,8 @@ public:
     bool await_ready() const noexcept { return false; }
 
     template <typename Promise>
-    std::coroutine_handle<> await_suspend(std::coroutine_handle<Promise> coro) noexcept {
+    std::coroutine_handle<>
+    await_suspend(std::coroutine_handle<Promise> coro) noexcept {
       if (coro.promise().m_continuation) {
         return coro.promise().m_continuation;
       }
