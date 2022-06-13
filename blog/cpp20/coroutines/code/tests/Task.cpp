@@ -13,5 +13,6 @@ TEST(TaskTest, Square)
   if (task) {
     task.resume();
   }
+  EXPECT_FALSE(task);
   EXPECT_EQ(task.result(), 4);
 }
