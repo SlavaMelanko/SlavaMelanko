@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Awaitable.h"
+#include "Awaiter.h"
 #include "Promise.h"
 
 #include <utility>
@@ -8,7 +8,7 @@
 namespace coro {
 
 template <typename T, typename PromiseType = Promise<T>,
-          template <typename> class AwaitableType = Awaitable>
+          template <typename> class AwaiterType = Awaiter>
 class Task {
 public:
   struct promise_type : PromiseType {
@@ -53,7 +53,7 @@ public:
   operator bool() const { return m_handle && !m_handle.done(); }
 
   auto operator co_await() const &noexcept {
-    return AwaitableType<promise_type>{m_handle};
+    return Awaiter<promise_type>{m_handle};
   }
 
 private:

@@ -17,7 +17,7 @@ add_library(${PROJECT_NAME} INTERFACE)
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        include/Awaitable.h
+        include/Awaiter.h
         include/Coroutine.h
         include/Promise.h
         include/Task.h
