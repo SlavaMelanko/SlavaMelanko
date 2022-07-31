@@ -6,18 +6,18 @@ template <typename Promise> class Awaiter {
 public:
   explicit Awaiter(std::coroutine_handle<Promise> handle) : m_handle{handle} {}
 
-  // Tells that is an expression is ready.
+  // 1. Tells that is an expression is ready.
   bool await_ready() const noexcept { return !m_handle || m_handle.done(); }
 
-  // Schedules the coroutine for resumption (or destruction) at some point in
-  // the future.
+  // 2. Schedules the coroutine for resumption (or destruction) at some point
+  //    in the future.
   auto await_suspend(std::coroutine_handle<> continuation) noexcept {
     return m_handle;
   }
 
-  // Returns the value that becomes the result of the `co_await` expression.
-  // The `await_resume` can also throw an exception in which case the exception
-  // propagates out of the `co_await` expression.
+  // 3. Returns the value that becomes the result of the `co_await` expression.
+  //    The `await_resume` can also throw an exception in which case the
+  //    exception propagates out of the `co_await` expression.
   decltype(auto) await_resume() noexcept { return m_handle.promise().result(); }
 
 private:
@@ -27,27 +27,35 @@ private:
 template <typename T> class Task {
 public:
   struct promise_type {
-    // Tells the compiler how do you want to construct the coroutine.
+    // 1. Obtains the return object. The return object is the value that is
+    // returned
+    //    to the caller when the coroutine first suspends or after it runs to
+    //    completion.
     auto get_return_object() {
       return Task{std::coroutine_handle<promise_type>::from_promise(*this)};
-      // `from_promise` allows reconstructing the coroutine handle from a
-      // reference to the coroutine's promise object.
     }
 
-    // First suspension point that tells compiler how we want to suspend the
-    // execution.
+    // 2. Controls whether the coroutine should suspend before executing
+    //    the coroutine body or start executing the coroutine body immediately.
+    //    Method returns either std::suspend_always (if the operation is lazily
+    //    started) or std::suspend_never (if the operation is eagerly started).
     std::suspend_always initial_suspend() const noexcept { return {}; }
+
+    // 3. Gives an opportunity to execute some additional logic (such as
+    //    publishing a result, signalling completion or resuming a continuation)
+    //    before execution is returned back to the caller/resumer.
     std::suspend_always final_suspend() const noexcept { return {}; }
 
-    // What if an exception happens inside coroutine? We should tell
-    // how to handle it. Exception free for now. For simplicity.
+    // 4. What if an exception happens inside coroutine? We should tell
+    //    how to handle it respectively. Do nothing for simplicity.
     void unhandled_exception() const {}
 
+    // 5. Sets the value that needs to be returned as a result.
     template <typename T> void return_value(T &&value) noexcept {
       m_value = std::forward<T>(value);
     }
 
-    auto result() const noexcept { return m_value; }
+    auto result() const { return m_value; }
 
   private:
     T m_value{-1};
@@ -64,7 +72,6 @@ public:
     }
   }
 
-  // Returns the result of the coroutine execution.
   T result() { return m_handle.promise().result(); }
 
   // Reactivates a suspended coroutine at the resume point.
@@ -86,27 +93,12 @@ private:
   std::coroutine_handle<promise_type> m_handle;
 };
 
-#if 0
 TEST(TaskTest, FirstTask) {
   auto square = [](const int val) -> Task<int> { co_return(val * val); };
   auto task = square(2);
+  task.resume();
   EXPECT_EQ(task.result(), 4);
 }
-
-// error: Expected equality of these values:
-//   task.result()
-//     Which is : -572662307
-//   0
-#endif
-
-#if 0
-TEST(TaskTest, FirstTask) {
-  // std::suspend_never final_suspend() -> std::suspend_always final_suspend()
-  auto square = [](const int val) -> Task<int> { co_return(val * val); };
-  auto task = square(2);
-  EXPECT_EQ(task.result(), 4);
-}
-#endif
 
 Task<int> bar(const int val) { co_return(val * val); }
 Task<int> foo(const int val) { co_return co_await bar(val); }
@@ -117,5 +109,3 @@ TEST(TaskTest, CoroInCoro) {
     task.resume();
   EXPECT_EQ(task.result(), 9);
 }
-
-// >_ error C2039: 'await_resume': is not a member of 'Task<int>'
