@@ -7,7 +7,7 @@
 
 namespace std {
 
-template<typename Promise = void>
+template <typename Promise = void>
 using coroutine_handle = experimental::coroutine_handle<Promise>;
 
 using suspend_always = experimental::suspend_always;
@@ -15,7 +15,7 @@ using suspend_never = experimental::suspend_never;
 
 inline constexpr auto noop_coroutine = experimental::noop_coroutine;
 
-} // namesapce std
+} // namespace std
 
 #else
 #error "Your compiler doesn't support coroutines"
