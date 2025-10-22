@@ -1,5 +1,7 @@
 ### Hi there 👋
 
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=SlavaMelanko&theme=dark&date_format=M%20j%5B%2C%20Y%5D)](https://git.io/streak-stats)
+
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
     <img height="195" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true" />
