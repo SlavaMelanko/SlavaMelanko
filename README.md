@@ -15,4 +15,8 @@
   <a href="https://www.linkedin.com/in/slava-melanko/">
     <img width="4%" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
   </a>
+  <span style="color: transparent; font-size: 32px; font-weight: bold;">.</span>
+  <a href="https://t.me/SlavaMelanko">
+    <img width="4%" src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" />
+  </a>
 </div>
