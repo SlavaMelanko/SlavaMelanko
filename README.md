@@ -4,7 +4,7 @@
 
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
-    <img height="80%" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true" />
+    <img width="80%" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true" />
   </a>
 </div>
 
