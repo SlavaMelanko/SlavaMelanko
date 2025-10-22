@@ -1,25 +1,18 @@
 ### Hi there 👋
 
-<!--
-**SlavaMelanko/SlavaMelanko** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I'm currently working on ...
-- 🌱 I'm currently learning ...
-- 👯 I'm looking to collaborate on ...
-- 🤔 I'm looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/anuraghazra/github-readme-stats">
     <img height="195" src="https://github-readme-stats-roottools-projects.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark" />
   </a>
   <a href="https://github.com/anuraghazra/convoychat">
     <img height="195" src="https://github-readme-stats-roottools-projects.vercel.app/api/top-langs/?username=SlavaMelanko&layout=compact&theme=dark&hide=jupyter%20notebook" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/slava-melanko/">
+    <img width="4%" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
   </a>
 </div>
