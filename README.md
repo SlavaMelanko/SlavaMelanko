@@ -8,8 +8,6 @@
   </a>
 </div>
 
-<br/>
-
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
     <img width="100%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SlavaMelanko&langs_count=10&layout=normal&theme=dark&hide=jupyter%20notebook" />
