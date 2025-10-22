@@ -4,10 +4,7 @@
 
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
-    <img height="195" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true" />
-  </a>
-  <a href="https://github.com/SlavaMelanko">
-    <img height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SlavaMelanko&langs_count=10&layout=compact&theme=dark&hide=jupyter%20notebook" />
+    <img height="80%" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true" />
   </a>
 </div>
 
