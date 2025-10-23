@@ -8,10 +8,10 @@
 
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
-    <img height="195" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true&custom_title=My%20GitHub%20Stats" />
+    <img height="195" width="55%" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true&custom_title=My%20GitHub%20Stats" />
   </a>
   <a href="https://github.com/SlavaMelanko">
-    <img height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SlavaMelanko&langs_count=6&layout=compact&theme=dark&hide=jupyter%20notebook,Cmake,HTML,SCSS,Makefile" />
+    <img height="195" width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SlavaMelanko&langs_count=6&layout=compact&theme=dark&hide=jupyter%20notebook,Cmake,HTML,SCSS,Makefile" />
   </a>
 </div>
 
