@@ -2,16 +2,13 @@
 
 <p align="center">
   <a href="https://git.io/streak-stats">
-    <img src="http://github-readme-streak-stats.herokuapp.com?user=SlavaMelanko&theme=dark&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak"/>
+    <img src="https://github-readme-streak-stats-eight.vercel.app/?user=SlavaMelanko&theme=dark&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak"/>
   </a>
 </p>
 
 <div align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
   <a href="https://github.com/SlavaMelanko">
-    <img height="195" width="55%" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true&custom_title=My%20GitHub%20Stats" />
-  </a>
-  <a href="https://github.com/SlavaMelanko">
-    <img height="195" width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SlavaMelanko&langs_count=6&layout=compact&theme=dark&hide=jupyter%20notebook,Cmake,HTML,SCSS,Makefile" />
+    <img height="195" src="https://github-readme-stats.vercel.app/api?username=SlavaMelanko&show_icons=true&theme=dark&count_private=true&custom_title=My%20GitHub%20Stats" />
   </a>
 </div>
 
